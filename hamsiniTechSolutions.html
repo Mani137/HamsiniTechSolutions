@@ -1,0 +1,1292 @@
+<html>
+    <head>
+        <title>Hamsini Tech Solutions</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <style>
+    .top-header {
+    background-color: #000b24;
+    color: white;
+    padding: 8px 20px;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    font-family: Arial, sans-serif;
+  }
+
+  .top-header a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 3px;
+  }
+
+  .top-header a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: #00c6ff;
+  }
+
+  .top-header span {
+    color: white;
+  }
+      
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background: white;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links > .dropdown {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      padding: 8px 12px;
+      transition: color 0.3s;
+    }
+
+    /* Add down arrow */
+    .dropdown > a::after {
+      
+      font-size: 10px;
+    }
+
+    /* Dropdown box */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 5px;
+      min-width: 220px;
+      z-index: 999;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px 18px;
+      color: black;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    /* ✅ Hover effect */
+    .dropdown-content a:hover {
+      
+      color: #f720a5;
+      border-radius: 3px;
+      padding-left: 25px;
+    }
+
+    /* Show dropdown on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .login-btn {
+      background: #007bff;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .login-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .home-icon {
+      font-size: 20px;
+    }
+  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.slider-container {
+  width: 100%;
+  height: 100vh; /* Full screen */
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-image {
+  position: absolute;
+  width: 100%;
+  height: 95%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.slider-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Container for all course cards */
+/* Wrapper for scroll and arrows */
+/* Outer slider container */
+ /* Universal Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: white;
+  overflow-x: hidden;
+}
+
+/* Carousel Wrapper */
+.carousel-wrapper {
+  position: relative;
+  padding: 40px;
+  overflow: hidden;
+}
+
+/* Viewport */
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Track of Cards */
+.carousel-track {
+  display: flex;
+  gap: 20px; /* spacing between cards */
+  transition: transform 0.5s ease;
+}
+
+/* Each Course Card */
+.course-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+  height: 420px; /* increased height */
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Course Image */
+.card-image img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+
+.card-body {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+}
+
+
+/* Footer */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px; /* reduced padding */
+  height: 40px;       /* reduced height */
+  border-top: 1px solid #eee;
+  background-color: #fafafa;
+  align-items: center;
+}
+/* Buttons */
+.enroll-btn,
+.share-btn {
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.enroll-btn {
+  background-color: #0156ff;
+  color: white;
+}
+
+.enroll-btn:hover {
+  background-color: #003ecb;
+}
+
+.share-btn {
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+/* Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .course-card {
+    flex: 0 0 calc((100% - 20px) / 2); /* 2 cards with 20px gap */
+  }
+}
+
+@media (max-width: 600px) {
+  .course-card {
+    flex: 0 0 100%;
+  }
+
+  .nav-arrow {
+    display: none;
+  }
+}
+  /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 20px;
+      color: #0156ff;
+      text-align: center;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .modal-content button {
+      width: 100%;
+      padding: 10px;
+      background: #0156ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .close {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .close:hover {
+      color: red;
+    }
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 10% auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: red;
+}
+
+.share-box h2 {
+  color: #e91e63;
+  font-size: 22px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.share-box p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.share-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.share-link input {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 70%;
+}
+
+.copy-btn {
+  padding: 10px 15px;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 28px;
+}
+
+.fa-square-facebook { color: #3b5998; }
+.fa-instagram { color: #e4405f; }
+.fa-square-whatsapp { color: #25d366; }
+.fa-linkedin { color: #0077b5; }
+
+.social-icons i {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+}
+
+.enroll-form {
+  max-width: 400px;
+  background-color: white;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin: auto;
+}
+
+.enroll-form h2 {
+  color: #0e76a8;
+  font-size: 18px;
+}
+
+.enroll-form h1 {
+  font-size: 26px;
+  margin-top: 10px;
+}
+
+.enroll-form input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.enroll-form .buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.enroll-form .buttons button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.enroll-form .submit-btn {
+  background-color: #0066ff;
+  color: white;
+}
+
+.enroll-form .skip-btn {
+  background-color: white;
+  border: 1px solid #ccc;
+}
+.services-section {
+  background-color: #f9f9fc; /* Very light blue-gray background */
+  padding: 60px 30px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.services-title {
+  font-size: 36px;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #1c1c1c;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.service-card {
+  background-color: #ffffff; /* White card */
+  padding: 25px 20px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e5e5;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.service-icon {
+  font-size: 40px;
+  color: #ff6f00; /* Bright orange */
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.service-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .services-title {
+    font-size: 28px;
+  }
+
+  .service-card {
+    padding: 20px 15px;
+  }
+
+  .service-icon {
+    font-size: 36px;
+  }
+}
+
+/* Base Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Footer Container */
+.footer {
+  background-color: #0d1172;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 50px 30px 0; /* No bottom padding */
+  margin: 0;
+}
+
+/* Layout Container */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+/* Each Column */
+.footer-column {
+  flex: 1 1 250px;
+  min-width: 240px;
+}
+
+/* Logo */
+.footer-logo {
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+/* Column Headings */
+.footer-column h3 {
+  color: orange;
+  text-decoration: underline;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+/* List Styling */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Text inside contact/info section */
+.footer-column p {
+  line-height: 1.7;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Social Media Icons */
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons i {
+  font-size: 20px;
+  color: orange;
+  cursor: pointer;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  width: 100%;
+  background-color: orange;
+  padding: 12px 0;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  border: none;
+}
+
+
+</style>
+</head>
+    <body>
+        
+        <!-- Top Header -->
+<div class="top-header">
+  <a href="blog.html">Blogs</a>
+  <span>|</span>
+  <a href="newBatches.html">New Batches</a>
+  <span>|</span>
+  <a href="hire.html">Hire From Us</a>
+  <span>|</span>
+  <span>📞 +91 8179191999</span>
+  <span>|</span>
+  <span>✉️ support@hamsinitechsolutions.com</span>
+</div>
+
+        <!-- Main Nav Bar -->
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background: linear-gradient(to right, #ffffff, #f6f6f6); border-bottom: 2px solid red;">
+  
+  <!-- Logo -->
+  <div style="display: flex; align-items: center;">
+    <img src="hamsinilogo.png" alt="Hamsini Tech SolutionsLogo" style="height: 50px; margin-right: 15px; width: 150px;">
+  </div>
+
+  <!-- Search Box -->
+  <div style="flex: 1; max-width: 250px; display: flex; align-items: center; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; margin: 0 20px;">
+    <input type="text" placeholder="Search course" style="flex: 1; padding: 10px; border: none; outline: none;">
+    <button style="padding: 10px 15px; border: none; background: linear-gradient(to right, #d51e54, #f6b91e); color: white; cursor: pointer;">
+    🔍
+    </button>
+  </div>
+
+  <!-- Navigation Links -->
+  <div class="navbar">
+  <div class="nav-links">
+    <a href="hamsiniTechSolutions.html" class="home-icon">🏠</a>
+
+    <div class="dropdown">
+      <a href="#">All Courses &#9662;</a>
+      <div class="dropdown-content">
+        <a href="fullstack.html">Full Stack Courses</a>
+        <a href="job-assist.html">Job Assistance</a>
+        <a href="certification.html">Certification</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Services &#9662;</a>
+      <div class="dropdown-content">
+        <a href="classroom.html">Classroom Training</a>
+        <a href="online.html">Online Training</a>
+        <a href="weekend.html">Weekend Training</a>
+
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">Training &#9662;</a>
+      <div class="dropdown-content">
+        <a href="new-batches.html">New Batches</a>
+        <a href="weekend.html">Weekend Batches</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#">About &#9662;</a>
+      <div class="dropdown-content">
+        <a href="about.html">About Us</a>
+        
+      </div>
+    </div>
+
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <a href="login.html" class="login-btn">Login</a>
+</div>
+</div>
+<div class="slider-container">
+  <img class="slider-image active" src="data science (2).jpg" alt="Image 1" />
+  <img class="slider-image" src="aws and devops.jpeg" alt="Image 2" />
+  <img class="slider-image" src="data analytics.jpeg" alt="Image 3" />
+</div><br/>
+  <div>
+    <h1>&emsp;&emsp;Our Courses</h1>
+  </div>
+   <!-- All Courses -->
+   <div class="carousel-wrapper">
+    <button id="prevBtn" class="nav-arrow">❮</button>
+
+    <div class="carousel">
+      <div class="carousel-track" id="carouselTrack">
+  <!-- AWS & DevOps -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="devop.jpeg" alt="AWS & DevOps" />
+    </div>
+    <div class="card-body">
+      <h2>AWS & DevOps</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 10 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Manikanta</p>
+      <p>⏳ <strong>Dur:</strong> 3 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+
+  </div>
+  </div>
+
+  <!-- Azure DevOps -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="azure.jpeg" alt="Azure DevOps" />
+    </div>
+    <div class="card-body">
+      <h2>Azure DevOps</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 12 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Pavan</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+
+  </div>
+  </div>
+
+  <!-- Java Full Stack -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="java.jpg" alt="Azure DevOps" />
+    </div>
+    <div class="card-body">
+      <h2>Java Full Stack</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 12 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Pavan</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+
+  </div>
+  </div>
+
+  <!-- React JS -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="react.png" alt="Azure DevOps" />
+    </div>
+    <div class="card-body">
+      <h2>React.Js</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 12 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Pavan</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+
+  </div>
+  </div>
+
+  <!-- Generative AI -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="genAI.jpeg" alt="Azure DevOps" />
+    </div>
+    <div class="card-body">
+      <h2>Generative AI</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 12 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Pavan</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+  </div>
+  </div>
+
+  <!-- Data Analytics -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="DA.jpeg" alt="Data Analytics" />
+    </div>
+    <div class="card-body">
+      <h2>Data Analytics</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 5 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Real-Time Expert</p>
+      <p>⏳ <strong>Dur:</strong> 4 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+
+  </div>
+  </div>
+
+  <!-- Data science -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="DS.jpeg" alt="Full Stack Java" />
+    </div>
+    <div class="card-body">
+      <h2>Data Science</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 15 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Rahul</p>
+      <p>⏳ <strong>Dur:</strong> 5 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+
+  </div>
+  </div>
+
+
+  <!-- Power BI -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="pbi.png" alt="Power BI" />
+    </div>
+    <div class="card-body">
+      <h2>Power BI</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 8 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Ms. Kavitha</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+
+  </div>
+  </div>
+
+  
+  <!-- Linux -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="linux.jpeg" alt="Linux" />
+    </div>
+    <div class="card-body">
+      <h2>Linux Admin</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 6 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Mahesh</p>
+      <p>⏳ <strong>Dur:</strong> 45 Days</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+
+  </div>
+  </div>
+
+  <!-- Tableau -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="tableau.png" alt="Tableau" />
+    </div>
+    <div class="card-body">
+      <h2>Tableau</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 13 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Ms. Asha</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+
+  </div>
+  </div>
+
+  <!-- Python -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="python.jpe" alt="Full Stack Java" />
+    </div>
+    <div class="card-body">
+      <h2>Python</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 15 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Naresh</p>
+      <p>⏳ <strong>Dur:</strong> 45 Days</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+  </div>
+  </div>
+  
+  <!-- Python Full Stack  -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="python full stack.jpeg" alt="Full Stack Java" />
+    </div>
+    <div class="card-body">
+      <h2>Python Full Stack</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 15 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Chakravarthi</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+  </div>
+  </div>
+</div>
+
+ <button id="nextBtn" class="nav-arrow">❯</button>
+</div>
+</div>
+
+<!--All courses-->
+<script>
+const track = document.getElementById("carouselTrack");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+const originalCards = Array.from(track.children);
+const visibleCards = 4;
+
+// Clone last 4 and prepend to start
+originalCards.slice(-visibleCards).forEach(card => {
+  const clone = card.cloneNode(true);
+  track.insertBefore(clone, track.firstChild);
+});
+
+// Clone first 4 and append to end
+originalCards.slice(0, visibleCards).forEach(card => {
+  const clone = card.cloneNode(true);
+  track.appendChild(clone);
+});
+
+// All cards after cloning
+const allCards = track.querySelectorAll(".course-card");
+const cardWidth = allCards[0].offsetWidth + 20;
+
+let currentIndex = visibleCards; // Start at real first slide
+
+function updatePosition() {
+  track.style.transition = "transform 0.4s ease-in-out";
+  track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+}
+
+// Initial shift
+updatePosition();
+
+// Right Arrow Click
+nextBtn.addEventListener("click", () => {
+  if (currentIndex >= allCards.length - visibleCards) return;
+  currentIndex++;
+  updatePosition();
+});
+
+// Left Arrow Click
+prevBtn.addEventListener("click", () => {
+  if (currentIndex <= 0) return;
+  currentIndex--;
+  updatePosition();
+});
+
+// Loop logic
+track.addEventListener("transitionend", () => {
+  // Jump to real first if passed fake last
+  if (currentIndex === allCards.length - visibleCards) {
+    track.style.transition = "none";
+    currentIndex = visibleCards;
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  }
+  // Jump to real last if passed fake first
+  if (currentIndex === 0) {
+    track.style.transition = "none";
+    currentIndex = allCards.length - visibleCards * 2;
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  }
+});
+</script>
+
+<!--This is mages code -->
+<script>
+let current = 0;
+const images = document.querySelectorAll('.slider-image');
+const total = images.length;
+
+function showNextSlide() {
+  images[current].classList.remove('active');
+  current = (current + 1) % total;
+  images[current].classList.add('active');
+}
+
+setInterval(showNextSlide, 6000); // Change every 6 seconds */}
+</script>
+
+   <!-- Share Modal -->
+    <!-- Share Modal -->
+<div id="shareModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeShareModal()">&times;</span>
+    <div class="share-box">
+      <h2>Share this course</h2>
+      <p>Share this course's details with your family & friends</p>
+
+      <div class="share-link">
+        <input type="text" value="https://nareshit.com/courses/full-stack-java-online-training" readonly id="shareUrl">
+        <button class="copy-btn" onclick="copyLink()">Copy Link</button>
+      </div>
+
+      <div class="social-icons">
+        <i class="fa-brands fa-square-facebook" onclick="openShare('facebook')"></i>
+        <i class="fa-brands fa-instagram" onclick="openShare('instagram')"></i>
+        <i class="fa-brands fa-square-whatsapp" onclick="openShare('whatsapp')"></i>
+        <i class="fa-brands fa-linkedin" onclick="openShare('linkedin')"></i>
+      </div>
+    </div>
+  </div>
+</div>
+ <script>
+  function openShareModal() {
+    document.getElementById("shareModal").style.display = "block";
+  }
+
+  function closeShareModal() {
+    document.getElementById("shareModal").style.display = "none";
+  }
+
+  function copyLink() {
+    const linkInput = document.getElementById("shareUrl");
+    linkInput.select();
+    linkInput.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("Link copied!");
+  }
+
+  function openShare(platform) {
+    const url = encodeURIComponent(document.getElementById("shareUrl").value);
+    let shareUrl = "#";
+
+    switch(platform) {
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        break;
+      case 'instagram':
+        alert("Instagram does not support direct web sharing.");
+        return;
+      case 'whatsapp':
+        shareUrl = `https://wa.me/?text=${url}`;
+        break;
+      case 'linkedin':
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+        break;
+    }
+
+    window.open(shareUrl, "_blank");
+  }
+
+  // Close modal if clicking outside it
+  window.onclick = function(event) {
+    const modal = document.getElementById("shareModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+<!--Enroll Model-->
+ <!-- Enroll Modal -->
+<div id="enrollModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeEnrollModal()">&times;</span>
+    <div class="enroll-form">
+      <h2>Course :</h2>
+      <h1>Full Stack Java</h1>
+
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Mobile Number" required>
+      <input type="email" placeholder="Email address" required>
+
+      <div class="buttons">
+        <button class="skip-btn" onclick="closeEnrollModal()">Skip</button>
+        <button class="submit-btn">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openEnrollModal() {
+    document.getElementById("enrollModal").style.display = "block";
+  }
+
+  function closeEnrollModal() {
+    document.getElementById("enrollModal").style.display = "none";
+  }
+
+  // Close enroll modal if clicking outside it
+  window.addEventListener("click", function(event) {
+    const enrollModal = document.getElementById("enrollModal");
+    if (event.target === enrollModal) {
+      enrollModal.style.display = "none";
+    }
+  });
+</script>
+
+<!-- Our Services Section -->
+<section class="services-section">
+  <h2 class="services-title">Our Services</h2>
+  <div class="services-grid">
+    
+    <!-- Service Card -->
+    <div class="service-card">
+      <i class="fas fa-mobile-alt service-icon"></i>
+      <h3>Online Training</h3>
+      <p>Live sessions via virtual classrooms with industry experts. Learn latest technologies without location constraints.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-chalkboard-teacher service-icon"></i>
+      <h3>Classroom Training</h3>
+      <p>State-of-the-art classroom facility for in-person interaction and learning with expert trainers.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-user-clock service-icon"></i>
+      <h3>Job Assistance</h3>
+      <p>Resume building, mock interviews, placement programs, career counseling, and networking support.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-clock service-icon"></i>
+      <h3>Flexible Timings</h3>
+      <p>Learn at your convenience. Use your free time to gain new tech skills from anywhere.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-user-check service-icon"></i>
+      <h3>High Qualified Trainers</h3>
+      <p>10+ years experienced professionals delivering training in their specialized domains.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-laptop-code service-icon"></i>
+      <h3>Corporate Training</h3>
+      <p>Hands-on training to onboard employees quickly and improve productivity in live projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer HTML -->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Logo & About -->
+    <div class="footer-column footer-about">
+      <img src="logo.png" alt="Logo" class="footer-logo">
+      <p>
+        At Hamsini Tech Solutions you are guaranteed best in class training as we team up the most efficient, professional and dedicated trainers who are subject matter experts in their respective area of specialization.
+      </p>
+      <div class="social-icons">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-telegram"></i>
+      </div>
+    </div>
+
+    <!-- Useful Links -->
+    <div class="footer-column">
+      <h3>USEFUL LINKS</h3>
+      <ul>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">All Courses</a></li>
+        <li><a href="#">Trainee Registration</a></li>
+        <li><a href="#">Internships</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Placements</a></li>
+        <li><a href="#">Online Training</a></li>
+        <li><a href="#">Classroom Training</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Our Policies -->
+    <div class="footer-column">
+      <h3>OUR POLICIES</h3>
+      <ul>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Refund & Cancellation</a></li>
+        <li><a href="#">Code of Conduct</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-column">
+      <h3>CONTACT INFO</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Sri Sai Arcade, Door No. 7-1-455, 2nd Floor, Ameerpet, Hyderabad, Telangana 500038</p>
+      <p><i class="fas fa-phone"></i> IND: +91 9100920092, +91 9100940094</p>
+      <p><i class="fas fa-phone"></i> USA: +1 201 203 8999</p>
+      <p><i class="fas fa-envelope"></i> info@hamsinitech.com</p>
+      <p><i class="fas fa-clock"></i> Mon - Sat: 7AM to 9PM (IST)</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © Copyright – 2025 | Hamsini Tech Solutions | All Rights Reserved
+  </div>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</footer>
+</body>
+</html>

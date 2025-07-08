@@ -1,0 +1,339 @@
+<html>
+    <head>
+        <title>Full Stack Courses</title>
+<style>
+
+/* Header Banner */
+    .header-image img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: white;
+  overflow-x: hidden;
+}
+
+/* Carousel Wrapper */
+.carousel-wrapper {
+  position: relative;
+  padding: 40px;
+  overflow: hidden;
+}
+
+/* Viewport */
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Track of Cards */
+.carousel-track {
+  display: flex;
+  gap: 20px; /* spacing between cards */
+  transition: transform 0.5s ease;
+}
+
+/* Each Course Card */
+.course-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+  height: 420px; /* increased height */
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Course Image */
+.card-image img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+
+.card-body {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+}
+
+/* Footer */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px; /* reduced padding */
+  height: 40px;       /* reduced height */
+  border-top: 1px solid #eee;
+  background-color: #fafafa;
+  align-items: center;
+}
+/* Buttons */
+.enroll-btn,
+.share-btn {
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.enroll-btn {
+  background-color: #0156ff;
+  color: white;
+}
+
+.enroll-btn:hover {
+  background-color: #003ecb;
+}
+
+.share-btn {
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+/* Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .course-card {
+    flex: 0 0 calc((100% - 20px) / 2); /* 2 cards with 20px gap */
+  }
+}
+
+@media (max-width: 600px) {
+  .course-card {
+    flex: 0 0 100%;
+  }
+
+  .nav-arrow {
+    display: none;
+  }
+}
+</style>
+    </head>
+    <body>
+        <div class="header-image">
+         <img src="full stack.jpg">
+        </div><br/>
+        <div>
+            <h2>&emsp;&emsp;Full Stack Courses</h2>
+        </div>
+        
+<!-- All Courses -->
+   <div class="carousel-wrapper">
+    <button id="prevBtn" class="nav-arrow">❮</button>
+
+    <div class="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- Java Full Stack -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="java.jpg" alt="Azure DevOps" />
+    </div>
+    <div class="card-body">
+      <h2>Java Full Stack</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 12 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Pavan</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+  </div>
+  </div>
+
+  <!-- React JS -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="react.png" alt="Azure DevOps" />
+    </div>
+    <div class="card-body">
+      <h2>React.Js</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 12 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Pavan</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+  </div>
+  </div>
+
+  <!-- Generative AI -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="genAI.jpeg" alt="Azure DevOps" />
+    </div>
+    <div class="card-body">
+      <h2>Generative AI</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 12 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Pavan</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+  </div>
+  </div>
+  <!-- AWS & DevOps -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="devop.jpeg" alt="AWS & DevOps" />
+    </div>
+    <div class="card-body">
+      <h2>AWS & DevOps</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 10 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Manikanta</p>
+      <p>⏳ <strong>Dur:</strong> 3 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+  </div>
+  </div>
+  <!-- Data science -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="DS.jpeg" alt="Full Stack Java" />
+    </div>
+    <div class="card-body">
+      <h2>Data Science</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 15 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Rahul</p>
+      <p>⏳ <strong>Dur:</strong> 5 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+  </div>
+  </div>
+  <!-- Python Full Stack  -->
+  <div class="course-card">
+    <div class="card-image">
+      <img src="python full stack.jpeg" alt="Full Stack Java" />
+    </div>
+    <div class="card-body">
+      <h2>Python Full Stack</h2>
+      <div class="rating">⭐⭐⭐⭐⭐ 5</div><br/>
+      <p>📅 <strong>Start Date:</strong> 15 Jul 2025</p>
+      <p>👨‍🏫 <strong>by:</strong> Mr. Chakravarthi</p>
+      <p>⏳ <strong>Dur:</strong> 2 Months</p>
+    </div>
+    <div class="card-footer">
+    <a href="javascript:void(0);" class="enroll-btn" onclick="openEnrollModal()">ENROLL</a>
+    <a href="javascript:void(0);" class="share-btn" onclick="openShareModal()">🔗 SHARE</a>
+  </div>
+  </div>
+</div>
+   <button id="nextBtn" class="nav-arrow">❯</button>
+</div>
+</div>
+<!--All courses-->
+<script>
+const track = document.getElementById("carouselTrack");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+const originalCards = Array.from(track.children);
+const visibleCards = 4;
+
+// Clone last 4 and prepend to start
+originalCards.slice(-visibleCards).forEach(card => {
+  const clone = card.cloneNode(true);
+  track.insertBefore(clone, track.firstChild);
+});
+
+// Clone first 4 and append to end
+originalCards.slice(0, visibleCards).forEach(card => {
+  const clone = card.cloneNode(true);
+  track.appendChild(clone);
+});
+
+// All cards after cloning
+const allCards = track.querySelectorAll(".course-card");
+const cardWidth = allCards[0].offsetWidth + 20;
+
+let currentIndex = visibleCards; // Start at real first slide
+
+function updatePosition() {
+  track.style.transition = "transform 0.4s ease-in-out";
+  track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+}
+
+// Initial shift
+updatePosition();
+
+// Right Arrow Click
+nextBtn.addEventListener("click", () => {
+  if (currentIndex >= allCards.length - visibleCards) return;
+  currentIndex++;
+  updatePosition();
+});
+
+// Left Arrow Click
+prevBtn.addEventListener("click", () => {
+  if (currentIndex <= 0) return;
+  currentIndex--;
+  updatePosition();
+});
+
+// Loop logic
+track.addEventListener("transitionend", () => {
+  // Jump to real first if passed fake last
+  if (currentIndex === allCards.length - visibleCards) {
+    track.style.transition = "none";
+    currentIndex = visibleCards;
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  }
+  // Jump to real last if passed fake first
+  if (currentIndex === 0) {
+    track.style.transition = "none";
+    currentIndex = allCards.length - visibleCards * 2;
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  }
+});
+</script>
+    </body>
+</html>

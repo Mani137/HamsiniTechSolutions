@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Hamsini Technologies</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #0d1172;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      padding: 8px 12px;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: orange;
+      border-radius: 4px;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+      min-width: 160px;
+    }
+
+    .dropdown-menu li a {
+      color: #0d1172;
+      padding: 10px 15px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    /* About Section */
+    .about-us-section {
+      padding: 60px 20px;
+      background-color: #f9f9ff;
+    }
+
+    .about-us-container {
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-title {
+      font-size: 36px;
+      color: #0d1172;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    .about-description {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #444;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO IMAGE -->
+  <center><img src="about.jpeg" alt="About Us Banner" class="hero-image" height="300"  width="600"/></center>
+
+  <!-- ABOUT US SECTION -->
+  <section class="about-us-section">
+    <div class="about-us-container">
+      <h2 class="about-title">About Us</h2>
+      <p class="about-description">
+        Hamsini Technologies is a top-tier software training institute dedicated to empowering students and professionals with industry-relevant skills. With experienced faculty and updated course materials, we help learners stay ahead in the IT world.
+      </p>
+      <p class="about-description">
+        Our focus is on Full Stack Development, Java, Python, Data Science, Cloud, and DevOps. We ensure hands-on projects, real-time use cases, certification support, and job assistance.
+      </p>
+      <p class="about-description">
+        Join Hamsini Technologies to build your IT career with confidence, support, and quality learning.
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>

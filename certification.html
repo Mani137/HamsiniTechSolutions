@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certification Courses - Training Features</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6fc;
+      padding: 20px;
+    }
+
+    .header-image img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    h2 {
+      text-align: left;
+      color: black;
+      margin: 30px 0;
+      font-size: 28px;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 30px;
+      border-bottom: 2px solid #ddd;
+      padding: 0 20px;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      font-weight: bold;
+      padding: 12px 0;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tab.active {
+      color: #0156ff;
+    }
+
+    .tab.active::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: #0156ff;
+      bottom: -2px;
+      left: 0;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      width: 300px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+    }
+
+    .feature-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-image">
+    <img src="cartification.jpeg" alt="Banner Image" />
+  </div>
+
+  <h2>Certification Courses</h2>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('features')">Training Features</div>
+  </div>
+
+  <!-- Tab Content -->
+  <div id="features" class="tab-content active">
+    <h2>Training Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="training.jpeg" alt="Training Image">
+        <h3>Comprehensive Software Training</h3>
+        <p>Dive into a well-structured curriculum covering essential topics relevant to the certification, ensuring a thorough understanding of the subject matter.</p>
+      </div>
+      <div class="feature-card">
+        <img src="trainer.jpeg" alt="Expert Trainers">
+        <h3>Expert Instructors</h3>
+        <p>Learn from industry experts and certified professionals who bring real-world insights, practical experience, and strategies to the training sessions.</p>
+      </div>
+      <div class="feature-card">
+        <img src="projects.jpeg" alt="Hands-on Projects">
+        <h3>Practical Hands-On Projects</h3>
+        <p>Reinforce theoretical knowledge with hands-on labs and projects, providing practical experience crucial for both certification exams and real-world success.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      contents.forEach(content => content.classList.remove('active'));
+
+      document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

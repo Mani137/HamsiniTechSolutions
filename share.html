@@ -1,0 +1,132 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Share This Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9fafc;
+      padding: 40px;
+    }
+
+    .share-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #e91e63;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 10px 0 20px;
+      font-size: 16px;
+    }
+
+    .share-link {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .share-link input {
+      flex: 1;
+      padding: 10px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px 0 0 6px;
+      outline: none;
+    }
+
+    .copy-btn {
+      padding: 10px 15px;
+      background-color: #0066ff;
+      color: white;
+      border: none;
+      border-radius: 0 6px 6px 0;
+      cursor: pointer;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      font-size: 30px;
+    }
+
+    .social-icons i {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .fa-square-facebook { color: #3b5998; }
+    .fa-instagram { color: #e4405f; }
+    .fa-square-whatsapp { color: #25d366; }
+    .fa-linkedin { color: #0077b5; }
+
+    .social-icons i:hover {
+      transform: scale(1.2);
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body>
+
+  <div class="share-box">
+    <h2>Share this course</h2>
+    <p>Share this course's details with your family & friends</p>
+
+    <div class="share-link">
+      <input type="text" value="https://nareshit.com/courses/full-stack-java-online-training" readonly id="shareUrl">
+      <button class="copy-btn" onclick="copyLink()">Copy Code</button>
+    </div>
+
+    <div class="social-icons">
+      <i class="fa-brands fa-square-facebook" onclick="openShare('facebook')"></i>
+      <i class="fa-brands fa-instagram" onclick="openShare('instagram')"></i>
+      <i class="fa-brands fa-square-whatsapp" onclick="openShare('whatsapp')"></i>
+      <i class="fa-brands fa-linkedin" onclick="openShare('linkedin')"></i>
+    </div>
+  </div>
+
+  <script>
+    function copyLink() {
+      const linkInput = document.getElementById("shareUrl");
+      linkInput.select();
+      linkInput.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      alert("Link copied!");
+    }
+
+    function openShare(platform) {
+      const url = encodeURIComponent(document.getElementById("shareUrl").value);
+      let shareUrl = "#";
+
+      switch(platform) {
+        case 'facebook':
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+          break;
+        case 'instagram':
+          alert("Instagram does not support direct web sharing.");
+          return;
+        case 'whatsapp':
+          shareUrl = `https://wa.me/?text=${url}`;
+          break;
+        case 'linkedin':
+          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+          break;
+      }
+
+      window.open(shareUrl, "_blank");
+    }
+  </script>
+
+</body>
+</html>-->

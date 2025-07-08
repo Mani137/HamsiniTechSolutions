@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Hamsini Tech Solutions</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f2f6fc;
+    }
+
+    /* Header */
+    header {
+      background: #000b24;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    header a:hover {
+      color: #00b7ff;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 60px 20px;
+      background: #ffffff;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      max-width: 1000px;
+      margin: auto;
+      gap: 50px;
+    }
+
+    .contact-left {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .contact-left img {
+  width: 100%;
+  height: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  display: block;
+  }
+  .contact-form {
+      flex: 1;
+      min-width: 320px;
+      background: #f9fbff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-form h2 {
+      margin-bottom: 25px;
+      font-size: 24px;
+      color: #0156ff;
+      text-align: center;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #0156ff;
+      outline: none;
+      box-shadow: 0 0 6px rgba(1, 86, 255, 0.2);
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(to right, #0156ff, #00c6ff);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: linear-gradient(to right, #003ecb, #00a2e2);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
+
+      .contact-form {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div><strong>Hamsini Tech Solutions</strong></div>
+    <div>
+      <a href="hamsiniTechSolutions.html">Home</a>
+      <a href="blog.html">Blogs</a>
+      <a href="newBatches.html">New Batches</a>
+      <a href="hire.html">Hire From Us</a>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <div id="contact">
+    <div class="contact-container">
+
+      <!-- Left Side Image -->
+      <div class="contact-left">
+        <img src="drops.jpeg" alt="Contact Banner" />
+      </div>
+
+      <!-- Right Side Form -->
+      <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email Address" required />
+          <input type="tel" placeholder="Mobile Number" required />
+          <textarea placeholder="Write your query here..." rows="5" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

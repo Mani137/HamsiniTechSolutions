@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Placement Assistance Program</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6fc;
+      padding: 20px;
+    }
+
+    /*.header-image img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }*/
+
+    h2 {
+      text-align: left;
+      color:black;
+      margin: 30px 0;
+      font-size: 28px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 30px;
+      border-bottom: 2px solid #ddd;
+      padding: 0 20px;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      font-weight: bold;
+      padding: 12px 0;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tab.active {
+      color: #0156ff;
+    }
+
+    .tab.active::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: #0156ff;
+      bottom: -2px;
+      left: 0;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .course-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .course-card {
+      width: 280px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .course-card .info {
+      padding: 15px;
+    }
+
+    .info h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .stars {
+      font-size: 18px;
+      color: #ffc107;
+      margin-bottom: 10px;
+    }
+
+    .rating {
+      font-size: 14px;
+      color: #444;
+      margin-left: 6px;
+    }
+
+    .card-footer {
+      display: flex;
+      border-top: 1px solid #eee;
+    }
+
+    .enroll-btn, .share-btn {
+      flex: 1;
+      text-align: center;
+      padding: 12px 0;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+
+    .enroll-btn {
+      background-color: #0156ff;
+      color: white;
+    }
+
+    .share-btn {
+      background-color: white;
+      color: #222;
+      border-left: 1px solid #eee;
+    }
+
+    .extra-courses {
+      display: none;
+      margin-top: 40px;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .explore-btn {
+      display: block;
+      margin: 20px auto 30px;
+      padding: 12px 24px;
+      background: linear-gradient(to right, #6a1b9a, #1976d2);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: fit-content;
+      text-decoration: none;
+    }
+
+    .explore-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Features & Table */
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      width: 300px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+    }
+     .feature-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: black;
+      color: white;
+    }
+
+    .meeting-link {
+      color: #0156ff;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 20px;
+      color: #0156ff;
+      text-align: center;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .modal-content button {
+      width: 100%;
+      padding: 10px;
+      background: #0156ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .close {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .close:hover {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-image">
+    <center><img src="job-assist.jpeg" alt="Banner Image" width="1200" height="300"/></center>
+  </div>
+
+  <h2>Job Placement Assistance Program</h2>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('courses')">Courses</div>
+    <div class="tab" onclick="showTab('features')">Training Features</div>
+    <div class="tab" onclick="showTab('timetable')">Batch Time Table</div>
+  </div>
+
+  <!-- Courses Tab -->
+  <div id="courses" class="tab-content active">
+    <div class="course-grid">
+      <div class="course-card">
+        <img src="java.png" alt="Java Course" />
+        <div class="info">
+          <h3>Full Stack Java Placement Assistance Program</h3>
+          <div class="stars">⭐⭐⭐⭐⭑ <span class="rating">4.5</span></div>
+        </div>
+        <div class="card-footer">
+          <a href="enroll.html" class="enroll-btn">ENROLL</a>
+          <a href="share.html" class="share-btn">🔗 SHARE</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="aws.png" alt="AWS Course" />
+        <div class="info">
+          <h3>AWS and DevOps Placement Assistance Program</h3>
+          <div class="stars">⭐⭐⭐⭐⭑ <span class="rating">4.5</span></div>
+        </div>
+        <div class="card-footer">
+          <a href="enroll.html" class="enroll-btn">ENROLL</a>
+          <a href="share.html" class="share-btn">🔗 SHARE</a>
+        </div>
+      </div>
+
+      <div class="extra-courses">
+        <div class="course-card">
+          <img src="das.jpeg" alt="Data Science Course" />
+          <div class="info">
+            <h3>Data Science Placement Assistance Program</h3>
+            <div class="stars">⭐⭐⭐⭐⭑ <span class="rating">4.5</span></div>
+          </div>
+          <div class="card-footer">
+            <a href="enroll.html" class="enroll-btn">ENROLL</a>
+            <a href="share.html" class="share-btn">🔗 SHARE</a>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="python.png" alt="Python Course" />
+          <div class="info">
+            <h3>Full Stack Python Placement Assistance Program</h3>
+            <div class="stars">⭐⭐⭐⭐⭐ <span class="rating">5</span></div>
+          </div>
+          <div class="card-footer">
+            <a href="enroll.html" class="enroll-btn">ENROLL</a>
+            <a href="share.html" class="share-btn">🔗 SHARE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="javascript:void(0);" class="explore-btn" onclick="showAllCourses()">EXPLORE OUR COURSES</a>
+  </div>
+
+  <!-- Features Tab -->
+  <div id="features" class="tab-content">
+    <h2>Training Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="training.jpeg" alt="Training Image">
+        <h3>Comprehensive Software Training</h3>
+        <p>Dive into a well-structured curriculum covering essential topics relevant to the certification, ensuring a thorough understanding of the subject ma...</p>
+      </div>
+      <div class="feature-card">
+        <img src="trainer.jpeg" alt="Expert Trainers">
+        <h3>Expert Instructors</h3>
+        <p>Learn from industry experts and certified professionals who bring real-world insights, practical experience, and strategies to the training...</p>
+      </div>
+      <div class="feature-card">
+        <img src="projects.jpeg" alt="Hands-on Projects">
+        <h3>Practical Hands-On Projects</h3>
+        <p>Reinforce theoretical knowledge with hands-on labs and projects, providing practical experience crucial for both certification exams and real-world...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Table Tab -->
+  <div id="timetable" class="tab-content">
+    <h2>New Batch Timetable</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Faculty</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Mode of Training</th>
+          <th>Batch Type</th>
+          <th>Meeting Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Full Stack Java Placement</td>
+          <td>Real-Time Expert</td>
+          <td>Jul 7</td>
+          <td>11:00 AM</td>
+          <td>Classroom</td>
+          <td>Weekday</td>
+          <td><a class="meeting-link" onclick="openForm()">Click here</a></td>
+        </tr>
+        <tr>
+          <td>AWS + DevOps</td>
+          <td>Real-Time Expert</td>
+          <td>Jul 9</td>
+          <td>10:00AM</td>
+          <td>Offline</td>
+          <td>Weekday</td>
+          <td><a class="meeting-link" onclick="openForm()">Click here</a></td>
+        </tr>
+
+        <tr>
+          <td>Azure + DevOps</td>
+          <td>Real-Time Expert</td>
+          <td>Jul 8</td>
+          <td>11:00 AM</td>
+          <td>Online</td>
+          <td>Weekend</td>
+          <td><a class="meeting-link" onclick="openForm()">Click here</a></td>
+        </tr>
+        <tr>
+          <td>Data Analytics</td>
+          <td>Real-Time Expert</td>
+          <td>Jul 8</td>
+          <td>12:00 PM</td>
+          <td>Offline</td>
+          <td>Weekday</td>
+          <td><a class="meeting-link" onclick="openForm()">Click here</a></td>
+        </tr>
+        <tr>
+          <td>Data Science</td>
+          <td>Real-Time Expert</td>
+          <td>Jul 10</td>
+          <td>9:00 AM</td>
+          <td>Online</td>
+          <td>Weekday</td>
+          <td><a class="meeting-link" onclick="openForm()">Click here</a></td>
+        </tr>
+        <tr>
+          <td>Power BI</td>
+          <td>Real-Time Expert</td>
+          <td>Jul 9</td>
+          <td>9:30 AM</td>
+          <td>Online</td>
+          <td>Weekend</td>
+          <td><a class="meeting-link" onclick="openForm()">Click here</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal -->
+  <div id="formModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h3>Register for the Batch</h3>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Mobile Number" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function showAllCourses() {
+      document.querySelector('.extra-courses').style.display = 'flex';
+      document.querySelector('.explore-btn').style.display = 'none';
+    }
+
+    function openForm() {
+      document.getElementById("formModal").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("formModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("formModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
