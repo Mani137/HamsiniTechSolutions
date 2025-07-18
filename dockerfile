@@ -1,5 +1,19 @@
-# cicd
-FROM nodejs:18.0
-RUN yum install httpd -y
-COPY ./* /var/www/html/
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+# Use official Node.js image
+FROM node:18
+
+
+
+
+RUN npm install
+
+RUN yum update -y && \
+    yum install httpd -y && \
+    yum clean all
+
+COPY . /var/www/html
+
+
+
+
+CMD ["node", "index.js"]
+
