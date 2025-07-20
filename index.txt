@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamsini Tech Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Modern Color Scheme */
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #ffffff;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-500: #64748b;
+            --gray-700: #334155;
+            --success: #10b981;
+            --danger: #ef4444;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+            --rounded-sm: 0.25rem;
+            --rounded: 0.5rem;
+            --rounded-lg: 0.75rem;
+            --rounded-xl: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--gray-100);
+            color: var(--dark);
+            line-height: 1.5;
+        }
+        /* Header - Glass Type */
+.header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: black; /* This sets default text color for header */
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* This will style all links in the header */
+.header a {
+    color: black; /* Sets link color to black */
+    text-decoration: none; /* Optional: removes underline from links */
+}
+
+/* If you have specific navigation elements, you might want to target them directly */
+.header nav ul li a {
+    color: black;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    font-size: 1.75rem;
+    color: var(--secondary);
+}
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            font-size: 1.75rem;
+            color: var(--secondary);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-highlight {
+            color: var(--secondary);
+        }
+
+        .nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: all 0.2s ease;
+            border-radius: var(--rounded);
+        }
+
+        .nav-link:hover {
+            color: var(--secondary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 60%;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: var(--rounded);
+            transition: all 0.2s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-icon {
+            color: var(--secondary);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 99;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Rest of your existing CSS remains exactly the same */
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--rounded);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--dark);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Courses Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .course-card {
+            background-color: var(--light);
+            border-radius: var(--rounded-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .course-image-container {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-image {
+            transform: scale(1.05);
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .course-instructor {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .course-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #f59e0b;
+        }
+
+        .course-date {
+            color: var(--gray-700);
+        }
+
+        .course-actions {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--gray-200);
+            padding-top: 1rem;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-icon {
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background-color: var(--light);
+            border-radius: var(--rounded-lg);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--gray-700);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+            padding: 4rem 2rem;
+            margin-bottom: 4rem;
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--gray-100);
+            padding: 1.5rem;
+            border-radius: var(--rounded-lg);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            font-size: 5rem;
+            color: rgba(0, 0, 0, 0.05);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: var(--gray-700);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: var(--rounded-lg);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-logo-icon {
+            color: var(--secondary);
+        }
+
+        .footer-about {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .footer-link a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact-icon {
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.875rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: var(--light);
+            border-radius: var(--rounded-lg);
+            width: 90%;
+            max-width: 500px;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .modal-close {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            color: var(--secondary);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: var(--rounded-sm);
+            border: 1px solid var(--gray-200);
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .header {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .contact-info {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .whatsapp-button {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/916304509572" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header with Glass Effect -->
+    <header class="header">
+       <!-- Logo -->
+   <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="logo-text">Hamsini<span class="logo-highlight">Tech</span></div>
+        </div>
+        <nav class="nav">
+            <a href="blog.html" class="nav-link">Blogs</a>
+            <a href="newBatches.html" class="nav-link">New Batches</a>
+            <a href="hire.html" class="nav-link">Hire From Us</a>
+        </nav>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt contact-icon"></i>
+                <span>+91 6304509572</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope contact-icon"></i>
+                <span>hamsinitech@gmail.com</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">Transform Your Career with Cutting-Edge Tech Training</h1>
+        <p class="hero-subtitle">Join India's leading technology training institute with 100% placement assistance and learn from industry experts</p>
+        <div class="hero-cta">
+            <button class="btn btn-primary" onclick="openEnrollModal('General Inquiry')">
+                <i class="fas fa-book-open"></i> Explore Courses
+            </button>
+            <button class="btn btn-outline" onclick="openWhatsApp()">
+                <i class="fas fa-phone-alt"></i> Talk to Counselor
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Courses Section -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Our Popular Courses</h2>
+                <p class="section-subtitle">Choose from our industry-relevant courses designed to make you job-ready</p>
+            </div>
+
+            <div class="courses-grid">
+                <!-- AWS & DevOps -->
+                <div class="course-card">
+                    <div class="course-badge">Popular</div>
+                    <div class="course-image-container">
+                        <img src="devop.jpeg" alt="AWS & DevOps" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">AWS & DevOps</h3>
+                        <div class="course-instructor">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Mr. Manikanta</span>
+                        </div>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="course-date">
+                                <i class="far fa-calendar-alt"></i> 10 Jul 2025
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-outline btn-sm" onclick="openShareModal()">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm" onclick="openEnrollModal('AWS & DevOps')">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Azure DevOps -->
+                <div class="course-card">
+                    <div class="course-image-container">
+                        <img src="azure.jpeg" alt="Azure DevOps" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Azure DevOps</h3>
+                        <div class="course-instructor">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Mr. Manikanta</span>
+                        </div>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="course-date">
+                                <i class="far fa-calendar-alt"></i> 12 Jul 2025
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-outline btn-sm" onclick="openShareModal()">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm" onclick="openEnrollModal('Azure DevOps')">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Java Full Stack -->
+                <div class="course-card">
+                    <div class="course-badge">New</div>
+                    <div class="course-image-container">
+                        <img src="java.jpg" alt="Java Full Stack" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Java Full Stack</h3>
+                        <div class="course-instructor">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Mr.Uday</span>
+                        </div>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="course-date">
+                                <i class="far fa-calendar-alt"></i> 12 Jul 2025
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-outline btn-sm" onclick="openShareModal()">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm" onclick="openEnrollModal('Java Full Stack')">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- React JS -->
+                <div class="course-card">
+                    <div class="course-image-container">
+                        <img src="react.png" alt="React.Js" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">React.Js</h3>
+                        <div class="course-instructor">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Mr. Uday</span>
+                        </div>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="course-date">
+                                <i class="far fa-calendar-alt"></i> 12 Jul 2025
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-outline btn-sm" onclick="openShareModal()">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm" onclick="openEnrollModal('React.Js')">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generative AI -->
+                <div class="course-card">
+                    <div class="course-badge">Trending</div>
+                    <div class="course-image-container">
+                        <img src="genAI.jpeg" alt="Generative AI" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Generative AI</h3>
+                        <div class="course-instructor">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Mr. Hemanth</span>
+                        </div>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="course-date">
+                                <i class="far fa-calendar-alt"></i> 12 Jul 2025
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-outline btn-sm" onclick="openShareModal()">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm" onclick="openEnrollModal('Generative AI')">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Analytics -->
+                <div class="course-card">
+                    <div class="course-image-container">
+                        <img src="DA.jpeg" alt="Data Analytics" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Data Analytics</h3>
+                        <div class="course-instructor">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Real-Time Expert</span>
+                        </div>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="course-date">
+                                <i class="far fa-calendar-alt"></i> 5 Jul 2025
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-outline btn-sm" onclick="openShareModal()">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm" onclick="openEnrollModal('Data Analytics')">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Science -->
+                <div class="course-card">
+                    <div class="course-badge">Advanced</div>
+                    <div class="course-image-container">
+                        <img src="DS.jpeg" alt="Data Science" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Data Science</h3>
+                        <div class="course-instructor">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Mr. Rahul</span>
+                        </div>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="course-date">
+                                <i class="far fa-calendar-alt"></i> 15 Jul 2025
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-outline btn-sm" onclick="openShareModal()">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm" onclick="openEnrollModal('Data Science')">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power BI -->
+                <div class="course-card">
+                    <div class="course-image-container">
+                        <img src="pbi.png" alt="Power BI" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Power BI</h3>
+                        <div class="course-instructor">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Ms. Kavitha</span>
+                        </div>
+                        <div class="course-meta">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="course-date">
+                                <i class="far fa-calendar-alt"></i> 8 Jul 2025
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-outline btn-sm" onclick="openShareModal()">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm" onclick="openEnrollModal('Power BI')">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Hamsini Tech?</h2>
+                <p class="section-subtitle">We provide the best learning experience to transform your career</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="feature-title">Online Training</h3>
+                    <p class="feature-description">
+                        Live interactive sessions with industry experts from the comfort of your home
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="feature-title">Classroom Training</h3>
+                    <p class="feature-description">
+                        State-of-the-art classrooms with hands-on practical sessions
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="feature-title">Job Assistance</h3>
+                    <p class="feature-description">
+                        100% placement support with resume building and mock interviews
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="feature-title">Certification</h3>
+                    <p class="feature-description">
+                        Industry-recognized certifications to boost your career prospects
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="section-header">
+                <h2 class="section-title">Success Stories</h2>
+                <p class="section-subtitle">What our students say about us</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        The AWS DevOps course at Hamsini Tech transformed my career. The instructors are industry experts who provided practical knowledge. I got placed in a top MNC with a 300% salary hike!
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Sharma" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Rahul Sharma</h4>
+                            <p>AWS DevOps Engineer, TCS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        The Data Science program was comprehensive and up-to-date with industry trends. The placement team helped me secure a job even before course completion. Highly recommended!
+                    </p>
+                    B
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Patel" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Priya Patel</h4>
+                            <p>Data Scientist, Amazon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        The Java Full Stack course gave me the confidence to switch from non-tech to tech role. The hands-on projects were especially valuable during interviews. Thank you Hamsini Tech!
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Vikram Singh" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Vikram Singh</h4>
+                            <p>Full Stack Developer, Infosys</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">Ready to Transform Your Career?</h2>
+            <p class="cta-subtitle">Join our next batch and take the first step towards your dream tech job</p>
+            <button class="btn btn-primary" onclick="openEnrollModal('General Inquiry')">
+                <i class="fas fa-phone-alt"></i> Talk to Admission Counselor
+            </button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <i class="fas fa-laptop-code footer-logo-icon"></i>
+                    <span>HamsiniTech Solutions</span>
+                </div>
+                <p class="footer-about">
+                    Hamsini Tech Solutions is a premier IT training institute providing industry-relevant courses with 100% placement assistance. We bridge the gap between education and employment.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61578204434186" class="social-link" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/" class="social-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/hamsinitech2025/" class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="index.html">Home</a></li>
+                    <li class="footer-link"><a href="about.html">About Us</a></li>
+                    <li class="footer-link"><a href="courses.html">Courses</a></li>
+                    <li class="footer-link"><a href="newBatches.html">New Batches</a></li>
+                    <li class="footer-link"><a href="blog.html">Blog</a></li>
+                    <li class="footer-link"><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">Courses</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="fullstack.html">Full Stack Development</a></li>
+                    <li class="footer-link"><a href="aws-devops.html">AWS & DevOps</a></li>
+                    <li class="footer-link"><a href="data-science.html">Data Science</a></li>
+                    <li class="footer-link"><a href="data-analytics.html">Data Analytics</a></li>
+                    <li class="footer-link"><a href="ai-ml.html">AI & ML</a></li>
+                    <li class="footer-link"><a href="power-bi.html">Power BI</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">Contact Us</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                    <span>Flat no:502,Annapoorna Block,Adityya Enclave,Ameerpet, Hyderabad, Telangana 500085</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone-alt footer-contact-icon"></i>
+                    <span>+91 6304509572</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope footer-contact-icon"></i>
+                    <span>hamsinitech@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-clock footer-contact-icon"></i>
+                    <span>Mon-Sat: 9:00 AM - 6:00 PM</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hamsini Tech Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Enroll Modal -->
+    <div id="enrollModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Enroll Now</h3>
+                <span class="modal-close" onclick="closeEnrollModal()">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Course</label>
+                    <input type="text" id="courseName" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" id="enrollName" class="form-control" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mobile Number</label>
+                    <input type="text" id="enrollMobile" class="form-control" placeholder="Enter your mobile number">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" id="enrollEmail" class="form-control" placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Preferred Batch</label>
+                    <select class="form-control">
+                        <option>Morning (9AM - 12PM)</option>
+                        <option>Afternoon (2PM - 5PM)</option>
+                        <option>Evening (6PM - 9PM)</option>
+                        <option>Weekend (Sat & Sun)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeEnrollModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="submitEnrollForm()">Submit Application</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="shareModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Share This Course</h3>
+                <span class="modal-close" onclick="closeShareModal()">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Share Link</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <input type="text" id="shareUrl" class="form-control" value="https://hamsini.com/courses" readonly>
+                        <button class="btn btn-primary" onclick="copyLink()">Copy</button>
+                    </div>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <p style="text-align: center; margin-bottom: 1rem; color: var(--gray-700);">Or share via</p>
+                    <div style="display: flex; justify-content: center; gap: 1rem;">
+                        <button class="btn btn-icon" style="background-color: #3b5998; color: white;" onclick="openShare('facebook')">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button class="btn btn-icon" style="background-color: #1da1f2; color: white;" onclick="openShare('twitter')">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button class="btn btn-icon" style="background-color: #0077b5; color: white;" onclick="openShare('linkedin')">
+                            <i class="fab fa-linkedin-in"></i>
+                        </button>
+                        <button class="btn btn-icon" style="background-color: #25d366; color: white;" onclick="openShare('whatsapp')">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                        <button class="btn btn-icon" style="background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); color: white;" onclick="openShare('instagram')">
+                            <i class="fab fa-instagram"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // WhatsApp Functions
+        function openWhatsApp() {
+            const phoneNumber = "916304509572";
+            const message = "Hello Hamsini Tech, I'm interested in your courses. Can you please provide more information?";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Modal Functions
+        function openEnrollModal(courseTitle) {
+            document.getElementById('courseName').value = courseTitle;
+            document.getElementById('enrollModal').style.display = 'flex';
+        }
+
+        function closeEnrollModal() {
+            document.getElementById('enrollModal').style.display = 'none';
+        }
+
+        function openShareModal() {
+            document.getElementById('shareModal').style.display = 'flex';
+        }
+
+        function closeShareModal() {
+            document.getElementById('shareModal').style.display = 'none';
+        }
+
+        function submitEnrollForm() {
+            const name = document.getElementById('enrollName').value.trim();
+            const mobile = document.getElementById('enrollMobile').value.trim();
+            const email = document.getElementById('enrollEmail').value.trim();
+            const course = document.getElementById('courseName').value;
+
+            if (!name || !mobile || !email) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Send WhatsApp message with enrollment details
+            const whatsappMessage = `New Enrollment Request:\n\nName: ${name}\nMobile: ${mobile}\nEmail: ${email}\nCourse: ${course}`;
+            const whatsappUrl = `https://wa.me/916304509572?text=${encodeURIComponent(whatsappMessage)}`;
+
+            // Open WhatsApp with the message
+            window.open(whatsappUrl, '_blank');
+
+            alert(`Thank you for your interest!\n\nWe've received your application for ${course}. Our counselor will contact you shortly at ${mobile}.`);
+            closeEnrollModal();
+
+            // Reset form
+            document.getElementById('enrollName').value = '';
+            document.getElementById('enrollMobile').value = '';
+            document.getElementById('enrollEmail').value = '';
+        }
+
+        function copyLink() {
+            const linkInput = document.getElementById('shareUrl');
+            linkInput.select();
+            linkInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+
+            // Show copied notification
+            const originalText = linkInput.nextElementSibling.textContent;
+            linkInput.nextElementSibling.innerHTML = '<i class="fas fa-check"></i> Copied!';
+
+            setTimeout(() => {
+                linkInput.nextElementSibling.textContent = originalText;
+            }, 2000);
+        }
+
+        function openShare(platform) {
+            const url = encodeURIComponent(document.getElementById('shareUrl').value);
+            let shareUrl = '';
+            let windowSize = 'width=600,height=400';
+
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/profile.php?id=61578204434186/`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=Check out this course from Hamsini Tech Solutions`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'whatsapp':
+                    const whatsappMessage = `Check out this course from Hamsini Tech Solutions: ${url}`;
+                    shareUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
+                    windowSize = '';
+                    break;
+                case 'instagram':
+                    // Instagram doesn't have direct sharing, so we'll open their profile
+                    shareUrl = 'https://www.instagram.com/hamsinitech2025/';
+                    windowSize = '';
+                    break;
+            }
+
+            window.open(shareUrl, '_blank', windowSize);
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('enrollModal')) {
+                closeEnrollModal();
+            }
+            if (event.target === document.getElementById('shareModal')) {
+                closeShareModal();
+            }
+        });
+
+        // Search functionality
+        document.querySelector('.search-box input')?.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const courseCards = document.querySelectorAll('.course-card');
+
+            courseCards.forEach(card => {
+                const title = card.querySelector('.course-title').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
